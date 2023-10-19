@@ -1,0 +1,153 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <div>
+            <a class="navbar-brand font1" href="\" style="color: rgb(232, 232, 237);"><b>OneTap.com</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  me-auto mb-2 mb-lg-0 font1">
+                <li class="nav-item lp-3">
+                    <a class="nav-link active" aria-current="page" href="\" style="color: rgb(59, 171, 57);">Home</a>
+                </li>
+
+                <!-- <li class="nav-item lp-3">
+                    <a class="nav-link" href="\adminproduct" style="color: rgb(59, 171, 57);">Product</a>
+                </li> -->
+                <li class="nav-item lp-3">
+                    <a class="nav-link" href="\adminservice" style="color: rgb(59, 171, 57);">Service</a>
+                </li>
+
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-md-2 p-25 m-3">
+        <div class="col-md-2 p-25 m-3">
+            <ul class="a">
+                <li class="dropdown">
+                    <a class="dropdown-toggle">Service</a>
+                    <ul class="dropdown-menu">
+                        <li><button type="button" class="dropdown-item" (click)="nextAddServices()">Add
+                            Service</button></li>
+                        <li><button type="button" class="dropdown-item" (click)="nextUpdate()">Update Service</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- <button onclick="next()" class="btn btn-success">Show booking</button> -->
+        </div>
+
+    </div>
+
+
+
+    <!-- <div class="col-1"></div> -->
+    <div class="col-md-3 shadow-lg m-3 bg-warning rounded-3" *ngIf="f">
+        <form (ngSubmit)="addServices()">
+            <h2 align="center">Service Registration</h2>
+            <div class="mt-3">
+                <label for="id" class="form-label">ID:</label>
+                <input type="text" class="form-control" name="id" [(ngModel)]="serviceid" #id1="ngModel" required>
+            </div>
+            <div class="mt-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" name="name" [(ngModel)]="servicename" required #name1="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="brand" class="form-label">Category:</label>
+                <input type="text" class="form-control" name="Category" required [(ngModel)]="servicecategory"
+                    #category1="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="brand" class="form-label">Price:</label>
+                <input type="text" class="form-control" name="Price" required [(ngModel)]="serviceprice" #price1="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="brand" class="form-label">Discount:</label>
+                <input type="text" class="form-control" name="discount" required [(ngModel)]="servicediscount"
+                    #discount1="ngModel">
+            </div>
+            <div>
+                <label for="image" class="form-label">Image:</label>
+                <input type="text" class="form-control" name="img" [(ngModel)]="serviceimg" required #img1="ngModel">
+            </div>
+            <div class="mt-3 mb-3">
+                <button type="submit" class="form-control btn btn-outline-success">ADD</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3 shadow-lg m-3 bg-warning rounded-3" *ngIf="t">
+        <form (ngSubmit)="updateServices(serviceid)">
+            <h2 align="center">Update Service</h2>
+            <div class="mt-3">
+                <label for="id" class="form-label">ID:</label>
+                <input type="text" class="form-control" name="id" id="id" [(ngModel)]="serviceid" #id1="ngModel" required>
+                <!-- (keyup)="showUpdate()" -->
+            </div>
+            <div class="mt-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" name="name" id="name" [(ngModel)]="servicename" required
+                    #name1="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="brand" class="form-label">Category:</label>
+                <input type="text" class="form-control" name="Category" required [(ngModel)]="servicecategory"
+                    #category1="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="brand" class="form-label">Price:</label>
+                <input type="text" class="form-control" name="Price" required [(ngModel)]="serviceprice" #price1="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="brand" class="form-label">Discount:</label>
+                <input type="text" class="form-control" name="discount" required [(ngModel)]="servicediscount"
+                    #discount1="ngModel">
+            </div>
+            <div>
+                <label for="image" class="form-label">Image:</label>
+                <input type="text" class="form-control" name="img" id="img" [(ngModel)]="serviceimg" required #img1="ngModel">
+            </div>
+            <div class="mt-3 mb-3">
+                <button type="submit" class="form-control btn btn-outline-success">Update</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 m-3">
+        <table class="table">
+            <thead class="bg-secondary">
+                <th scope="col">Reg#No</th>
+                <th scope="col lp-3">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Image</th>
+                <th scope="col" class="lm-2">Delete</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of services; let i=index" (click)="dataService(i)">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{p.serviceid}}</td>
+                    <td>{{p.servicename}}</td>
+                    <td>{{p.servicecategory}}</td>
+                    <td>{{p.serviceprice}}</td>
+                    <td>{{p.servicediscount}}</td>
+                    <td>{{p.serviceimg}}</td>
+                    <td><button class="btn btn-danger" type="button" (click)="deleteServices(i)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>

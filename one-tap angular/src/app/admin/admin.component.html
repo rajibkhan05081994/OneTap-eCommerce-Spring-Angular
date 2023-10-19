@@ -1,0 +1,36 @@
+<div>
+    <div class="row p-3">
+        <div class="col-1"></div>
+        <div class="col-4 shadow-lg p-3 mb-5 bg-warning rounded-3">
+            <form (ngSubmit)="adminLogin()" novalidate #f="ngForm">
+                <h2 align="center">OneTap.com</h2>
+                <h3 align="center">Sign in</h3>
+                <p align="center">to enjoy our unlimited service</p>
+                <div class="mt-3">
+                    <label for="id" class="form-label">Email:</label>
+                    <input type="text" class="form-control" name="email" id="email" [(ngModel)]="email" required
+                        minlength="15" pattern="^[A-Za-z0-9]+\@[A-Za-z]+\.[A-Za-z]{2,3}$" #email1="ngModel">
+                </div>
+                <ul *ngIf="email1.dirty && email1.invalid" class="text-danger list-unstyled">
+                    <li *ngIf="email1.errors?.['required']">Empty not allowed</li>
+                    <li *ngIf="email1.errors?.['minlength']">Minimum 15 charecter</li>
+                    <li *ngIf="email1.errors?.['pattern']">Write a valid email</li>
+                </ul>
+                <div>
+                    <label for="id" class="form-label">Password:</label>
+                    <input type="password" class="form-control" name="round" id="round" [(ngModel)]="password"
+                        #round1="ngModel">
+                </div>
+                <div class="mt-3 d-grid d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-outline-success"
+                        [disabled]="!f.valid">Log in</button>
+                </div>
+                <div>
+                    <p>To create an account please <a href="login">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="col-1"></div>
+
+    </div>
+</div>

@@ -1,0 +1,31 @@
+
+.div1 {
+    height: 800px;
+    width: 700px;
+    margin: auto;
+}
+
+
+.div2 {
+    background-color: lightgrey;
+    border: 5px solid rgb(15, 20, 15);
+    height: 40px;
+    width: 500px;
+    margin: auto;
+}
+.div3 {
+    border: 1px solid rgb(15, 20, 15);
+    margin: auto;
+}
+.font1 {
+    font-family: "Trirong", serif;
+}
+
+.marquee1 {
+    font-family: "Trirong", serif;
+    font-size: 20px;
+    color: rgb(59, 171, 57);
+}
+.under {
+    text-decoration-color: rgb(59, 171, 57);
+}

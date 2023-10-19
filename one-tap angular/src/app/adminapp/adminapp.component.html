@@ -1,0 +1,41 @@
+
+<div class="m-3">
+    <table class="table table-striped">
+        <thead class="bg-success">
+            <th scope="col">App-ID</th>
+            <th scope="col lp-3">App-Date</th>
+            <th scope="col">Ser-Category</th>
+            <th scope="col">Ser-Name</th>
+            <th scope="col">Ser-Price</th>
+            <th scope="col">Ex-labour-Price</th>
+            <th scope="col">Ser-Discount</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Cus-Name</th>
+            <th scope="col">Cus-Email</th>
+            <th scope="col">Cus-Address</th>
+            <th scope="col">Cus-Area</th>
+            <th scope="col">Cus-City</th>
+            <th scope="col">Cus-Postcode</th>
+            <th scope="col" class="lm-2">Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of appointment; let i= index" (click)="data(i)">
+                <th scope="row">{{p.appid}}</th>
+                <td>{{p.appdate}}</td>
+                <td>{{p.servicecategory}}</td>
+                <td>{{p.servicename}}</td>
+                <td>{{p.serviceprice}}</td>
+                <td>{{p.laboourrate}}</td>
+                <td>{{p.servicediscount}}</td>
+                <td>{{p.totalprice}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.email}}</td>
+                <td>{{p.address}}</td>
+                <td>{{p.area}}</td>
+                <td>{{p.city}}</td>
+                <td>{{p.postcode}}</td>
+                <td><button class="btn btn-danger" type="button" (click)="deleteApp(i)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <div>
+            <a class="navbar-brand font1" href="\" style="color: rgb(232, 232, 237);"><b>OneTap.com</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  me-auto mb-2 mb-lg-0 font1">
+                <li class="nav-item lp-3">
+                    <a class="nav-link active" aria-current="page" href="\" style="color: rgb(59, 171, 57);">Home</a>
+                </li>
+
+                <li class="nav-item lp-3">
+                    <a class="nav-link" href="\adminproduct" style="color: rgb(59, 171, 57);">Product</a>
+                </li>
+                <li class="nav-item lp-3">
+                    <a class="nav-link" href="\adminservice" style="color: rgb(59, 171, 57);">Service</a>
+                </li>
+
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-md-2 p-25 m-3">
+        <div class="col-md-2 p-25 m-3">
+            <ul class="a">
+                <li class="dropdown">
+                    <a class="dropdown-toggle">Products</a>
+                    <ul class="dropdown-menu">
+                        <li><button type="button" class="dropdown-item" (click)="nextAdd()">Add Products</button></li>
+                        <li><button type="button" class="dropdown-item" (click)="nextUpdate()">Update Products</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+    <!-- <div class="col-1"></div> -->
+    <div class="col-md-3 shadow-lg m-3 bg-warning rounded-3" *ngIf="f">
+        <form (ngSubmit)="addProducts()">
+            <h2 align="center">Product Registration</h2>
+            <div>
+                <label for="image" class="form-label">Image:</label>
+                <input type="text" class="form-control" name="img" [(ngModel)]="img" required #img1="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="id" class="form-label">ID:</label>
+                <input type="text" class="form-control" name="id" [(ngModel)]="id" #id1="ngModel" required>
+            </div>
+            <div class="mt-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" name="name" [(ngModel)]="name" required #name1="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="brand" class="form-label">Brand:</label>
+                <input type="text" class="form-control" name="brand" required [(ngModel)]="brand" #brand1="ngModel">
+            </div>
+            <div class="mt-3 mb-3">
+                <button type="submit" class="form-control btn btn-outline-success">ADD</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3 shadow-lg m-3 bg-warning rounded-3" *ngIf="t">
+        <form (ngSubmit)="updateProducts(id)">
+            <h2 align="center">Update Product</h2>
+            <div>
+                <label for="image" class="form-label">Image:</label>
+                <input type="text" class="form-control" name="img" id="img" [(ngModel)]="img" required #img1="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="id" class="form-label">ID:</label>
+                <input type="text" class="form-control" name="id" id="id" [(ngModel)]="id" #id1="ngModel" required
+                    >
+                    <!-- (keyup)="showUpdate()" -->
+            </div>
+            <div class="mt-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" name="name" id="name" [(ngModel)]="name" required
+                    #name1="ngModel">
+            </div>
+            <div class="mt-3">
+                <label for="brand" class="form-label">Brand:</label>
+                <input type="text" class="form-control" name="brand" id="brand" required [(ngModel)]="brand"
+                    #brand1="ngModel">
+            </div>
+            <div class="mt-3 mb-3">
+                <button type="submit" class="form-control btn btn-outline-success">Update</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 m-3">
+        <table class="table bg-warning">
+            <thead class="bg-secondary">
+                <th scope="col">Reg#No</th>
+                <th scope="col">Image</th>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Brand</th>
+                <th scope="col" class="lm-2">Delete</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of products; let i=index" (click)="data(i)">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{p.img}}</td>
+                    <td>{{p.id}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.brand}}</td>
+                    <td><button class="btn btn-danger" type="button" (click)="deleteProducts(i)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>

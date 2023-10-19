@@ -1,0 +1,138 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <!-- <div class="col-md-1.5">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Menu
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><button class="dropdown-item" type="button" routerLink="techregistration">Tech Login</button>
+                    </li>
+                    <li><button class="dropdown-item" type="button" routerLink="customer-login">Customer Login</button>
+                    </li>
+                    <li><button class="dropdown-item" type="button"></button></li>
+                </ul>
+            </div>
+        </div> -->
+        <a class="navbar-brand" href="\"><b>OneTap.com</b></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\">Home</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\service">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\login">Log-in</a>
+                </li> -->
+            </ul>
+            <!-- <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+        </div>
+    </div>
+</nav>
+<div *ngIf="t">
+    <div class="row p-3">
+        <div class="col-1"></div>
+        <div class="col-4 shadow-lg p-3 mb-5 bg-warning rounded-3">
+            <form (ngSubmit)="next()" novalidate #f="ngForm">
+                <h2 align="center">Profile Registration</h2>
+                <div class="mt-3">
+                    <label for="category">category :</label>
+                    <select class="form-control" id="category1" name="category" [(ngModel)]="category"
+                        #category1="ngModel">
+                        <option>Electrician</option>
+                        <option>Plumber</option>
+                    </select>
+                </div>
+                <div class="mt-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" name="name" [(ngModel)]="name" #name1="ngModel" required>
+                </div>
+                <ul *ngIf="name1.dirty && name1.invalid" class="text-danger list-unstyled">
+                    <li *ngIf="name1.errors?.['required']">Empty not allowed</li>
+                </ul>
+                <div class="mt-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="text" class="form-control" name="email" [(ngModel)]="email" required minlength="15"
+                        pattern="^[A-Za-z0-9]+\@[A-Za-z]+\.[A-Za-z]{2,3}$" #email1="ngModel">
+                </div>
+                <ul *ngIf="email1.dirty && email1.invalid" class="text-danger list-unstyled">
+                    <li *ngIf="email1.errors?.['required']">Empty not allowed</li>
+                    <li *ngIf="email1.errors?.['minlength']">Minimum 15 charecter</li>
+                    <li *ngIf="email1.errors?.['pattern']">Write a valid email</li>
+                </ul>
+                <div class="mt-3">
+                    <label for="contact" class="form-label">Contact:</label>
+                    <input type="text" class="form-control" name="contact" required minlength="3" [(ngModel)]="contact"
+                        #contact1="ngModel">
+                </div>
+                <ul *ngIf="contact1.dirty && contact1.invalid" class="text-danger list-unstyled">
+                    <li *ngIf="contact1.errors?.['required']">Empty not allowed</li>
+                    <li *ngIf="contact1.errors?.['minlength']">Minimum 3 charecter</li>
+                </ul>
+                <div>
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" class="form-control" name="password" [(ngModel)]="password"
+                        #password1="ngModel">
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="form-control btn btn-outline-success"
+                        [disabled]="!f.valid">Next</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-1"></div>
+
+    </div>
+</div>
+<div *ngIf="!t">
+    <div class="row p-3">
+        <div class="col-1"></div>
+        <div class="col-4 shadow-lg p-3 mb-5 bg-success rounded-3">
+            <form (ngSubmit)="addProfile()" novalidate #f="ngForm">
+                <h2 align="center">Documentation Form</h2>
+                <div class="mt-3">
+                    <label for="id" class="form-label">ID:</label>
+                    <input type="text" class="form-control" name="id" [(ngModel)]="id" #id1="ngModel" required>
+                </div>
+                <!-- <div class="mt-3">
+                   <label for="category">category :</label>
+                   <select class="form-control" id="category1" name="category" [(ngModel)]="category" #category1="ngModel">
+                    <option>Electrician</option>
+                    <option>Plumber</option>
+                   </select>
+                </div> -->
+
+
+                <div class="mt-3">
+                    <label for="degree" class="form-label">Degree:</label>
+                    <input type="text" class="form-control" name="degree" required [(ngModel)]="degree"
+                        #degree1="ngModel">
+                </div>
+
+                <div>
+                    <label for="img" class="form-label">Image:</label>
+                    <input type="text" class="form-control" name="img" [(ngModel)]="img" required #img1="ngModel">
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="form-control btn btn-outline-warning"
+                        [disabled]="!f.valid">Add</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-1"></div>
+
+    </div>
+</div>

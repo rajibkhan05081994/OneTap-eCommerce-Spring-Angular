@@ -1,0 +1,34 @@
+/* .nav-link.a {
+    border: 1px solid white;
+    /* Add a 1px black border to each <a> tag */
+    /*padding: 5px;
+    /* Optional: Add some padding to create some space between the border and the link text */
+/*}
+
+.div.u {
+    border: 1px solid green;
+} */
+/* Optional: Add some styles to the navigation links */
+.nav-link {
+    border: 1px solid green;
+    padding: 8px;
+    margin-bottom: 5px;
+  }
+  
+  /* Center align the cards */
+  .row {
+    justify-content: center;
+  }
+  
+  /* Add some space between cards */
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  /* Set card image height and width */
+  .card-img-top {
+    height: 200px;
+    width: 100%;
+    object-fit: cover; /* Ensure the image retains its aspect ratio and fills the container */
+  }
+  

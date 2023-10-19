@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <div class="col-md-1.5">
+            <div class="dropdown font1">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Log in
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><button class="dropdown-item" type="button" routerLink="techregistration">Techs Login</button>
+                    </li>
+                    <li><button class="dropdown-item" type="button" routerLink="customer-login">Customer Login</button>
+                    </li>
+                    <li><button class="dropdown-item" type="button" routerLink="customer-login">Log in</button></li>
+                    <li><button class="dropdown-item" type="button" (click)="logOut()">Log out</button></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <a class="navbar-brand font1" href="\" style="color: rgb(232, 232, 237);"><b>OneTap.com</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  me-auto mb-2 mb-lg-0 font1">
+                <li class="nav-item lp-3">
+                    <a class="nav-link active" aria-current="page" href="\" style="color: rgb(59, 171, 57);">Home</a>
+                </li>
+                <li class="nav-item lp-3">
+                    <a class="nav-link active" aria-current="page" href="\service"
+                        style="color: rgb(59, 171, 57);">Service</a>
+                </li>
+                <li class="nav-item lp-3">
+                    <a class="nav-link" href="\products" style="color: rgb(59, 171, 57);">Products</a>
+                </li>
+                
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div id="carouselExampleSlidesOnly" class="carousel slide m-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="../assets/ACpic/ac1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="../assets/ACpic/ac1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="../assets/ACpic/ac1.jpg" class="d-block w-100" alt="...">
+        </div>
+    </div>
+</div>
+
+<div class="m-3">
+    <h2 align="center"><u class="under">Our Products</u></h2>
+</div>
+
+<div class="container-fluid row">
+    <div class="col-md-3">
+        <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action" routerLink="home">HOME</button>
+            <button type="button" class="list-group-item list-group-item-action" routerLink="service">Our
+                Service</button>
+            <button type="button" class="list-group-item list-group-item-action" routerLink="products">Our
+                Products</button>
+            <button type="button" class="list-group-item list-group-item-action" routerLink="technitians">Our
+                Technitians</button>
+
+        </div>
+    </div>
+    <div class="container-fluid col-md-9">
+        <div class="row">
+            <div *ngFor="let x of products" class="col-md-4">
+                <div class="card" style="width: 18rem; height: 450px;">
+                    <img src="../../assets/ACpic/{{x.img}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{x.name}}</h5>
+                        <p class="card-text">{{x.brand}} <br>&nbsp;price: ${{x.price}}</p>
+
+                        <a href="#" class="btn btn-sm btn-primary" routerLink="customer-login">Buy now</a>&nbsp;
+                        <a href="#" class="btn btn-sm btn-primary" (click)="addToCart(x.id)">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
